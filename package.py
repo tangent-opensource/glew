@@ -1,12 +1,12 @@
 name = 'glew'
 
-version = '2.0.0-ta.1.0.0'
+version = '2.0.0-ta.1.1.0'
 
 authors = [
     'benjamin.skinner',
 ]
 
-build_requires = [
+private_build_requires = [
     'python-3',
 ]
 
@@ -15,13 +15,13 @@ variants = [
 ]
 
 # Need because rez_build.py still calls compilers
-@early()
-def private_build_requires():
-    import sys
-    if 'win' in str(sys.platform):
-        return ['visual_studio']
-    else:
-        return ['gcc-7']
+# @early()
+# def private_build_requires():
+#     import sys
+#     if 'win' in str(sys.platform):
+#         return ['visual_studio']
+#     else:
+#         return ['gcc-7']
 
 build_command = 'python {root}/rez_build.py'
 
