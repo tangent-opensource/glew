@@ -1,6 +1,6 @@
 name = 'glew'
 
-version = '1.1.0-houdini-18.0.532-ta.1.0.0'
+version = '1.13.0-houdini-18.5.351-ta.1.0.0'
 
 authors = [
     'benjamin.skinner',
@@ -8,11 +8,12 @@ authors = [
 
 private_build_requires = [
     'python',
-    'houdini-18.0.532',
+    'houdini-18.5.351',
 ]
 
 variants = [
     ['platform-windows', 'arch-x64', 'os-windows-10'],
+    ['platform-linux', 'arch-x86_64', 'os-centos-7'],
 ]
 
 build_command = 'python {root}/rez_build.py'

@@ -1,6 +1,4 @@
 import os, subprocess, sys
-import zipfile
-import urllib.request
 import shutil
 
 if __name__ == "__main__":
@@ -27,3 +25,20 @@ if __name__ == "__main__":
         os.mkdir(bin_dst)
 
         shutil.copy(src + '/bin/glew.dll', bin_dst + "/glew.dll")
+
+    else:
+
+        # Remove existing build
+        if os.path.exists(dst):
+            print(" - Removing existing build")
+            shutil.rmtree(dst, ignore_errors=True)
+
+        shutil.copytree(src + "/toolkit/include/GL", inc_dst + "/GL")
+        
+        os.mkdir(lib_dst)
+
+        shutil.copy(src + '/dsolib/libGLEW.so', lib_dst + "/libGLEW.so")
+        
+#       os.mkdir(bin_dst)
+#
+#       shutil.copy(src + '/bin/glew.a', bin_dst + "/glew.a")
